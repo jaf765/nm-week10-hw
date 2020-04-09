@@ -1,0 +1,48 @@
+<html>
+  <head>
+      <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+
+      <script type="text/javascript">
+
+      	$(document).ready(function(){
+
+         $('plantsub').click(
+
+           function() {
+          		$.ajax(
+
+              {
+          		  url: "https://trefle.io/some-url?token=RStHVmhHVURaZjQrc3dGd1lRbHBUQT09", // Change YOURAPPID to your API key
+          		  dataType: 'json',
+          		  success: function(data) {
+          			//alert("The scientific name is: " + data.plant );
+                document.getElementByID("scientificName").innerHTML = data.plant;
+
+          		  },
+          		  error: function() {
+          			alert("error");
+          		  }
+              }
+
+      	     	);
+            }
+          ):
+      	});
+
+      </script>
+
+</head>
+
+<body>
+  <h1> The Chic Guide to Houseplant Care </h1>
+  <p> Learn about some houseplants </p>
+
+ Search a Plant: <input type="text" name="plant" id=plantName><input type="button" id="plantsub" value="check">
+
+ Scientific Name:  <div id="scientificName"> </div>
+
+
+
+</body>
+
+</html>
